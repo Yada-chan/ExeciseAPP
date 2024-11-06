@@ -84,6 +84,6 @@ Thumbs.db
 !/Assets/
 
 #shop_imegeファイル消去予防
-!/Assets/Image/shop_view
-cd Assets/Image/shop_view
+!/Assets/Image/Shop_view
+cd Assets/Image/Shop_view
 touch .gitkeep

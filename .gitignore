@@ -1,7 +1,4 @@
-#shop_imegeファイル消去予防
-!/Assets/Image/Shop_view
-cd Assets/Image/Shop_view
-touch .gitkeep
+
 
 # Unity generated folders
 [Ll]ibrary/
@@ -88,3 +85,8 @@ Thumbs.db
 # Ensure that all files under Assets/ are included
 !/Assets/
 
+#shop_imegeファイル消去予防
+mkdir -p Assets/Image/Shop_view
+!/Assets/Image/Shop_view
+cd Assets/Image/Shop_view
+touch .gitkeep

@@ -82,3 +82,7 @@ Thumbs.db
 
 # Ensure that all files under Assets/ are included
 !/Assets/
+
+#shop_imegeファイル消去予防
+!/Assets/Image/shop_view
+touch .gitkeep

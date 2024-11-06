@@ -76,3 +76,9 @@ Builds/
 # Other
 .DS_Store
 Thumbs.db
+
+# Ensure that Unity meta files are included
+!*.meta
+
+# Ensure that all files under Assets/ are included
+!/Assets/

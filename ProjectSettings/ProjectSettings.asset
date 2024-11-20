@@ -387,6 +387,7 @@ PlayerSettings:
       m_Height: 1024
       m_Kind: 4
       m_SubKind: App Store
+<<<<<<< Updated upstream
   - m_BuildTarget: Android
     m_Icons:
     - m_Textures: []
@@ -479,6 +480,8 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
+=======
+>>>>>>> Stashed changes
   m_BuildTargetBatching: []
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs:

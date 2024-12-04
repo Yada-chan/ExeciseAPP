@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class changeKIROKUScene : MonoBehaviour
 {
   public void change_button(){
-        SceneManager.LoadScene("KIROKU");
+        SceneManager.LoadScene("KIROKU_unit");
     }
 
 }

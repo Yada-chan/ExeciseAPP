@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,11 +39,19 @@ public class CalenderManager : MonoBehaviour
     void Start()
     {
         GetTheDate();
+
         // カレンダーの年月を表示する
         calenderDateText = calenderDate.GetComponent<Text>();
         calenderDateText.text = firstDay.ToString("yyyy年M月");
 
         CreateDayPanel();
+
+        // 全てのパネルを一度非アクティブにする
+        foreach (Transform child in calender.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+
         SetCalenderDate();
     }
 
@@ -64,15 +73,18 @@ public class CalenderManager : MonoBehaviour
             dayButtonColor[i] = createButton.GetComponent<Image>();
             dayText[i] = createButton.transform.GetChild(0).GetComponent<Text>();
             createButton.SetActive(false); // 初期状態で非アクティブに設定
-            Debug.Log(i);
-
+            Debug.Log("Created day panel: " + i);
         }
+        Debug.Log("Total panels created: " + calender.transform.childCount); // パネル数の確認
     }
     // カレンダーの日付をリセットする
     private void SetCalenderDate()
     {
+        // カレンダーの最初の日の曜日を取得
         DayOfWeek firstWeek = firstDay.DayOfWeek;
-        int diff = (firstWeek == DayOfWeek.Sunday) ? 0 : -(int)firstWeek + 1;
+        int diff = (firstWeek == DayOfWeek.Sunday) ? 0 : -(int)firstWeek;
+
+        // 修正したポイント
         firstPoint = firstDay.AddDays(diff);
 
         for (int i = 0; i < 42; i++)
@@ -80,17 +92,17 @@ public class CalenderManager : MonoBehaviour
             DateTime temp = firstPoint.AddDays(i);
             dayText[i].transform.parent.gameObject.SetActive(true); // パネルをアクティブに設定
 
-            if (temp.Month != firstDay.Month)
-            {
-                dayText[i].text = temp.Day.ToString();
-                dayButtonColor[i].color = gray;
-            }
-            else
+            // 初期色を灰色に設定し、テキストをリセット
+            dayButtonColor[i].color = gray;
+            dayText[i].text = "";
+
+            if (temp.Month == firstDay.Month)
             {
                 dayText[i].text = temp.Day.ToString();
                 dayButtonColor[i].color = Color.white;
             }
 
+            // 曜日に応じたテキストカラーの設定
             switch (temp.DayOfWeek)
             {
                 case DayOfWeek.Sunday:
@@ -103,9 +115,16 @@ public class CalenderManager : MonoBehaviour
                     dayText[i].color = green;
                     break;
             }
-        }
 
+            Debug.Log("Day: " + temp.Day + ", Panel: " + i + ", Month: " + temp.Month + ", First Day Month: " + firstDay.Month);
+        }
     }
+
+
+
+
+
+
 
     public void ChangeMonth(int month)
     {

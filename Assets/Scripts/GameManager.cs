@@ -3,6 +3,12 @@ using UnityEngine; // 必ず追加
 using System.Collections.Generic;
 using System.Diagnostics;
 
+/*
+＊注意　　　（コンフリクト防止のため）インスタンスを一つしか作れないようにコーディングしてあるので、
+            Testクラスのなかだけでデバックしてほしいです。
+            自分用のデバックのためのクラスつくっちゃうとインスタンス占領することになるので気をつけてください。
+            Game ManagerとかPlayerPrefsWrapperは触らないようにしていただきたい。
+*/
 public class GameManager
 {
     // Singletonインスタンス
@@ -24,7 +30,6 @@ public class GameManager
     private int point = 0;
     private int[] cara_kcal = new int[10];
     private int[] item = new int[5];
-
 
     // 運動データを管理する辞書
     private Dictionary<int, Dictionary<string, int>> muscle = new Dictionary<int, Dictionary<string, int>>();
@@ -57,6 +62,31 @@ public class GameManager
     private void UpdateDate()
     {
         date = (DateTime.Now - stated_date).Days;
+    }
+
+    // プロパティを定義する
+    public int Level
+    {
+        get { return level; } // 値を取得
+        set { level = value; } // 値を設定
+    }
+
+    public int Point
+    {
+        get { return point; }
+        set { point = value; }
+    }
+
+    public int[] CaraKcal
+    {
+        get { return cara_kcal; }
+        set { cara_kcal = value; }
+    }
+
+    public int[] Item
+    {
+        get { return item; }
+        set { item = value; }
     }
 
     // 運動記録を取得するメゾット

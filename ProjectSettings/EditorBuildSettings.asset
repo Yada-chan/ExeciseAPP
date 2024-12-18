@@ -4,6 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
 <<<<<<< HEAD
@@ -53,3 +54,7 @@ EditorBuildSettings:
 >>>>>>> a185759e6e73466506d817058e7bdd1f29750f2f
 >>>>>>> 1af0747c995e5e1d16e4b5b025fcec7c9fc17fc5
 >>>>>>> bd6b64d9bf7dea64a0d30451e97bfc0845485e62
+=======
+  m_Scenes: []
+  m_configObjects: {}
+>>>>>>> 8c7a003550e1eff4970c8ba91b659c0688f0259c

@@ -4,5 +4,42 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+
+  m_Scenes:
+  - enabled: 1
+
+    path: Assets/Scenes/KIROKU.unity
+    guid: c671441c231ad0c47b9de5659ed780c4
+  - enabled: 1
+    path: Assets/Scenes/KIROKU_unit.unity
+    guid: 65c9db4241a6c26438b2de0732bf3b1c
+  - enabled: 1
+
+    path: Assets/Scenes/main_Scene.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/shop.unity
+    guid: 2c4979d14d7c80c468a6dbdb5024a8f5
+
+  - enabled: 1
+
+    path: Assets/Scenes/KIROKU_unit.unity
+    guid: 0a24f4d2b1f6bf04aa80f0e07baea4f2
+  - enabled: 0
+
+
+
+    path: Assets/Scenes/KIROKU.unity
+    guid: c671441c231ad0c47b9de5659ed780c4
+  - enabled: 1
+    path: Assets/Scenes/Undo.unity
+    guid: da1fdcb9f455c65418db349c3c3ba79d
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 798c578ee176f7049a200024e00c97da, type: 2}
+
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 18e3fd8653d5be24baddd5903afb0c4f, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 7e66ab8752faea748b99646b764fc12d, type: 2}
+
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 7e66ab8752faea748b99646b764fc12d, type: 2}
+
+

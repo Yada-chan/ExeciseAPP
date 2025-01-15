@@ -20,7 +20,7 @@ public class Test : MonoBehaviour
         var gameManager = GameManager.Instance;
 
         // 値を設定
-        gameManager.Level = 5;//レベルの設定
+        gameManager.Level = 1;//レベルの設定
         gameManager.Point = 100;//所持ポイントの設定
         gameManager.CaraKcal = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };//キャラの摂取カロリー設定
         gameManager.Item[0] = 0;//アイテムの所持

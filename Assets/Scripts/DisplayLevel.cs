@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// public Text levelText; // 通常の Text を使う場合はこちら
+
 
 public class DisplayLevel : MonoBehaviour
 {

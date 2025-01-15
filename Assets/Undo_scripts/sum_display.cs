@@ -7,11 +7,22 @@ public class sum_display : MonoBehaviour
 {
     [Header("çáåv")]
     public Text textField;
+
     // Start is called before the first frame update
     void Start()
     {
-        textField.text = sum_score.sum.ToString();
+        UpdateSumText();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        UpdateSumText();
+    }
 
+    void UpdateSumText()
+    {
+        textField.text = sum_score.sum.ToString();
+    }
 }
+

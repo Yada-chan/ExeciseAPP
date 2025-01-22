@@ -19,7 +19,7 @@ public class Test : MonoBehaviour
         var gameManager = GameManager.Instance;
 
         // 値を設定
-        gameManager.Level = 1;//レベルの設定
+        gameManager.NowCaraNum = 0;//現在使用しているキャラ
         gameManager.Point = 100;//所持ポイントの設定
         gameManager.CaraKcal = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };//キャラの摂取カロリー設定
         gameManager.Item  = new int[] { 0, 0, 0, 0, 0, 0, 0 };//アイテムの所持
@@ -28,7 +28,7 @@ public class Test : MonoBehaviour
         gameData.point += 10; // point の現在の値に 10 を加える
         */
         //デバック
-        Debug.Log($"Level: {gameManager.Level}");
+        Debug.Log($"Nuw_cara: {gameManager.NowCaraNum}");
         Debug.Log($"Point: {gameManager.Point}");
         Debug.Log($"First cara_kcal: {gameManager.CaraKcal[0]}");
         Debug.Log($"First item: {gameManager.Item[0]}");
@@ -57,6 +57,7 @@ public class Test : MonoBehaviour
     }
 
     // キャラクターデータの設定
+        gameManager.SetCharacterData(0, "Hituzi", 1);//今使っている
         gameManager.SetCharacterData(1, "Hero", 10);
         gameManager.SetCharacterData(2, "Villain", 20);
         gameManager.SetCharacterData(3, "Sidekick", 5);

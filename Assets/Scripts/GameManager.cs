@@ -26,9 +26,14 @@ public class GameManager
     }
 
     // privateなゲーム変数
+<<<<<<< HEAD
     private int level = 1;
     private int point = 100;
     private int selectitem = 0;
+=======
+    private int nowCaraNum = 1;
+    private int point = 0;
+>>>>>>> f148adf6f0ef49ee0e0d7774f9d0497c4e64ef7d
     private int[] cara_kcal = new int[10];
     private int[] item = new int[7];
 
@@ -66,10 +71,10 @@ public class GameManager
     }
 
     // プロパティを定義する
-    public int Level
+    public int NowCaraNum
     {
-        get { return level; } // 値を取得
-        set { level = value; } // 値を設定
+        get { return nowCaraNum; } // 値を取得
+        set { nowCaraNum = value; } // 値を設定
     }
 
     public int Point
@@ -140,6 +145,13 @@ public class GameManager
         characterData[caraNum] = (caraName, cara_level);
     }
 
+    //カロリーに応じたレベルアップ処理
+    public void UpdateCharacterLevel(int caraNum)
+    {
+        var data = GetCharacterData(caraNum);
+        SetCharacterData(caraNum, data.caraName, data.cara_level + 1);
+    
+    }
 
     // Getter for stated_date
     public DateTime GetStatedDate() => stated_date;

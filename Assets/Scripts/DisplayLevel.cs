@@ -12,7 +12,7 @@ public class DisplayLevel : MonoBehaviour
     public GameManager gameManager; // GameManagerスクリプト
     private int threshold = 100; // レベルアップに必要なカロリー
 
-    private int level=1;
+    private int caraLevel=1;
 
     void Start()
     {
@@ -23,10 +23,11 @@ public class DisplayLevel : MonoBehaviour
     void Update()
     {
         // カロリーが閾値を超えた場合、レベルを上げる
-        if (gameManager.CaraKcal[0] >= threshold)
+        if (gameManager.CaraKcal[gameManager.NowCaraNum] >= threshold)
         {
-            gameManager.Level++;
-            level=gameManager.Level;
+            gameManager.UpdateCharacterLevel(gameManager.NowCaraNum);
+            var caraDate=gameManager.GetCharacterData(gameManager.NowCaraNum);
+            caraLevel = caraDate.cara_level;
             UpdateLevelText();
         }
     }
@@ -35,7 +36,7 @@ public class DisplayLevel : MonoBehaviour
     {
         if (levelText != null)
     {
-        levelText.text = level.ToString();// 変数をTextに反映
+        levelText.text = caraLevel.ToString();// 変数をTextに反映
     }
     else
     {

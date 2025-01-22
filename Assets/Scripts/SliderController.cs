@@ -34,7 +34,12 @@ public class SliderController : MonoBehaviour
             {
                 gameManager.CaraKcal[0] = 0; // CaraKcalをリセット
                 kcalSlider.value = 0;       // Sliderもリセット
-                Debug.Log("Level Up! 新しいレベル: " + gameManager.Level);
+
+                /***************レベル表示*****************/
+                var caraDate=gameManager.GetCharacterData(gameManager.NowCaraNum);
+                int caraLevel = caraDate.cara_level;
+                Debug.Log("Level Up! 新しいレベル: " + caraLevel);
+                /*********************************/
             }
         }
 

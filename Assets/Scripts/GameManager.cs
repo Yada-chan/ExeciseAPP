@@ -26,14 +26,11 @@ public class GameManager
     }
 
     // privateなゲーム変数
-<<<<<<< HEAD
     private int level = 1;
     private int point = 100;
     private int selectitem = 0;
-=======
     private int nowCaraNum = 1;
     private int point = 0;
->>>>>>> f148adf6f0ef49ee0e0d7774f9d0497c4e64ef7d
     private int[] cara_kcal = new int[10];
     private int[] item = new int[7];
 

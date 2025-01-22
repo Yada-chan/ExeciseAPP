@@ -4,7 +4,6 @@ using UnityEngine;
 using System; // DateTimeを使用するために必要
 
 /*デバック画面はUnityを開いた状態で Shift ＋ Ctrl　＋　C　で確認可能*/
-
 public class Test : MonoBehaviour
 {
   void Start()
@@ -23,7 +22,7 @@ public class Test : MonoBehaviour
         gameManager.Level = 1;//レベルの設定
         gameManager.Point = 100;//所持ポイントの設定
         gameManager.CaraKcal = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };//キャラの摂取カロリー設定
-        gameManager.Item[0] = 0;//アイテムの所持
+        gameManager.Item  = new int[] { 0, 0, 0, 0, 0, 0, 0 };//アイテムの所持
 
         /*変数に変更を加えたい場合
         gameData.point += 10; // point の現在の値に 10 を加える

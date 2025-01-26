@@ -11,11 +11,11 @@ public class UIControllershow : MonoBehaviour
 
     //Button型の宣言
 
-    public Button[] Image_omoide; // omideのボタン
-    public Button[] Image_present; //presentのボタン 
+    public Button[] Image_omoide; // omideのボタン（常に表示）
+    public Button[] Image_present; //presentのボタン （常に表示）
 
-    private bool isomoideActive = true; // Aが表示中か
-    private bool ispresentActive = true; // Bが表示中か
+    private bool isomoideActive = false; // omoide内容が表示中か
+    private bool ispresentActive = false; // present内容が表示中か
     void Start()
     {
         SetGroupActive(omoide,false);

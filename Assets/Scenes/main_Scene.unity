@@ -1649,7 +1649,6 @@ RectTransform:
   m_SizeDelta: {x: 90.08, y: 30.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271333989
->>>>>>> 2193388b3b0034a528e7e1db6efb9f912be1b425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1705,7 +1704,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271333987}
   m_CullTransparentMesh: 1
->>>>>>> 2193388b3b0034a528e7e1db6efb9f912be1b425
 --- !u!1 &1367316659
 GameObject:
   m_ObjectHideFlags: 0

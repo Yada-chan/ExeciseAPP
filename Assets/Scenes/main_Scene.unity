@@ -1609,8 +1609,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244431083}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
---- !u!114 &1244431088
 =======
 --- !u!1 &1271333987
 GameObject:
@@ -1657,13 +1655,6 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1244431083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5acb05219820d9e46b9b1f89cd9e6f71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 =======
   m_GameObject: {fileID: 1271333987}
   m_Enabled: 1

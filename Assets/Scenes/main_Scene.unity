@@ -1488,6 +1488,7 @@ GameObject:
   - component: {fileID: 1244431087}
   - component: {fileID: 1244431086}
   - component: {fileID: 1244431085}
+  - component: {fileID: 1244431088}
   m_Layer: 5
   m_Name: Button (kiroku)
   m_TagString: Untagged
@@ -1558,7 +1559,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1244431088}
         m_TargetAssemblyTypeName: changeKIROKUScene, Assembly-CSharp
         m_MethodName: change_button
         m_Mode: 1
@@ -1608,6 +1609,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244431083}
   m_CullTransparentMesh: 1
+=======
 --- !u!1 &1271333987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,11 +1649,13 @@ RectTransform:
   m_SizeDelta: {x: 90.08, y: 30.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1271333989
+>>>>>>> 2193388b3b0034a528e7e1db6efb9f912be1b425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+=======
   m_GameObject: {fileID: 1271333987}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1701,6 +1705,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271333987}
   m_CullTransparentMesh: 1
+>>>>>>> 2193388b3b0034a528e7e1db6efb9f912be1b425
 --- !u!1 &1367316659
 GameObject:
   m_ObjectHideFlags: 0

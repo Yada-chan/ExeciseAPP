@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +17,8 @@ public class CalenderManager : MonoBehaviour
     public GameObject calenderDate;
     [Header("日付プレハブ")]
     public GameObject dayPanel;
+    [Header("ポイント表示テキスト")]
+    public Text pointsText; // 新しく追加するフィールド
 
     //プライベート
     private Text calenderDateText = null;
@@ -72,11 +73,14 @@ public class CalenderManager : MonoBehaviour
             createButton.transform.SetParent(calender.transform, false);
             dayButtonColor[i] = createButton.GetComponent<Image>();
             dayText[i] = createButton.transform.GetChild(0).GetComponent<Text>();
+            int index = i; // インデックスをキャプチャする
+            createButton.GetComponent<Button>().onClick.AddListener(() => OnDayButtonClick(index)); // クリックイベントを追加
             createButton.SetActive(false); // 初期状態で非アクティブに設定
             Debug.Log("Created day panel: " + i);
         }
         Debug.Log("Total panels created: " + calender.transform.childCount); // パネル数の確認
     }
+
     // カレンダーの日付をリセットする
     private void SetCalenderDate()
     {
@@ -120,8 +124,18 @@ public class CalenderManager : MonoBehaviour
         }
     }
 
+    // 日付ボタンがクリックされたときに呼び出されるメソッド
+    private void OnDayButtonClick(int index)
+    {
+        DateTime clickedDate = firstPoint.AddDays(index);
+        string key = clickedDate.ToString("yyyyMMdd"); // 年月日をキーとして使う
+        int dayPoints = PlayerPrefs.GetInt(key, 0); // PlayerPrefsからポイントを取得、存在しない場合は0
 
+        // ポイント表示のテキストを改行を含めて設定
+        pointsText.text = $"{clickedDate.ToString("yyyy年")}\n{clickedDate.ToString("M月d日")}\n{dayPoints}ポイント";
 
+        Debug.Log($"Clicked day panel {index}: {clickedDate.ToString("yyyy年M月d日")}, Points: {dayPoints}");
+    }
 
 
 

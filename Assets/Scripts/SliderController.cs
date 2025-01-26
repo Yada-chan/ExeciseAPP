@@ -46,6 +46,21 @@ public class SliderController : MonoBehaviour
 
     private void Update()
     {
+        // 「Delete」キーが押されたらセーブデータを削除
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            DeleteSaveDataFunction();
+            RestoreChara_Kcal();
+
+        // Sliderの初期値をCaraKcal[0]に設定
+        if (kcalSlider != null)
+        {
+            kcalSlider.value = gameManager.CaraKcal[0];
+            kcalSlider.maxValue = 100; // 必要なら設定
+            kcalSlider.minValue = 0;   // 必要なら設定
+        }
+        
+        }
         if (kcalSlider != null)
         {
             
@@ -69,6 +84,21 @@ public class SliderController : MonoBehaviour
                 /*********************************/
             }
         }
+
+        void DeleteSaveDataFunction()
+    {
+        // セーブデータを削除する
+        if (PlayerPrefs.HasKey(CaraKcalKey))
+        {
+            PlayerPrefs.DeleteKey(CaraKcalKey);
+            PlayerPrefs.Save(); // 即時保存
+            Debug.Log("Slider Save data deleted.");
+        }
+        else
+        {
+            Debug.Log("No save data found to delete.");
+        }
+    }
 
     // デバッグ用: KキーでCaraKcalを10増加
             if (Input.GetKeyDown(KeyCode.K))

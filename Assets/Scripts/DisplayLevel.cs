@@ -26,6 +26,13 @@ public class DisplayLevel : MonoBehaviour
 
     void Update()
     {
+        // 「Delete」キーが押されたらセーブデータを削除
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            DeleteSaveDataFunction();
+            RestoreChara_Level();
+            UpdateLevelText();
+        }
         // カロリーが閾値を超えた場合、レベルを上げる
         if (gameManager.CaraKcal[gameManager.NowCaraNum] >= threshold)
         {
@@ -39,6 +46,21 @@ public class DisplayLevel : MonoBehaviour
 
             caraLevel = caraData.cara_level;
             UpdateLevelText();
+        }
+    }
+
+    void DeleteSaveDataFunction()
+    {
+        // セーブデータを削除する
+        if (PlayerPrefs.HasKey(CaraLevelKey))
+        {
+            PlayerPrefs.DeleteKey(CaraLevelKey);
+            PlayerPrefs.Save(); // 即時保存
+            Debug.Log("Level Save data deleted.");
+        }
+        else
+        {
+            Debug.Log("No save data found to delete.");
         }
     }
 
@@ -75,3 +97,5 @@ public class DisplayLevel : MonoBehaviour
     }
     }
 }
+
+

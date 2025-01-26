@@ -28,9 +28,8 @@ public class GameManager
     // privateなゲーム変数
     private int level = 1;
     private int point = 100;
-    private int selectitem = 0;
+    private int selectitem = 10;
     private int nowCaraNum = 1;
-    private int point = 0;
     private int[] cara_kcal = new int[10];
     private int[] item = new int[7];
 

@@ -93,8 +93,3 @@ touch .gitkeep
 
 
 
-# Ignore everything in UserSettings
-UserSettings/*
-
-# But keep specific files (e.g., PluginSettings.asset)
-!UserSettings/PluginSettings.asset

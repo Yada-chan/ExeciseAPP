@@ -59,7 +59,7 @@ public class SliderController : MonoBehaviour
             kcalSlider.maxValue = 100; // 必要なら設定
             kcalSlider.minValue = 0;   // 必要なら設定
         }
-        
+
         }
         if (kcalSlider != null)
         {
@@ -85,7 +85,7 @@ public class SliderController : MonoBehaviour
             }
         }
 
-        void DeleteSaveDataFunction()
+    void DeleteSaveDataFunction()
     {
         // セーブデータを削除する
         if (PlayerPrefs.HasKey(CaraKcalKey))

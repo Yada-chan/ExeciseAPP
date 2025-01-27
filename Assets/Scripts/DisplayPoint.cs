@@ -13,6 +13,7 @@ public class DisplayPoint : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance;
+        RestoreChara_Point();
         UpdatePointText(); // 初期表示
     }
 
@@ -20,20 +21,24 @@ public class DisplayPoint : MonoBehaviour
     void Update()
     {
         // 「Delete」キーが押されたらセーブデータを削除
-        if (Input.GetKeyDown(KeyCode.Delete))
-        {
-            DeleteSaveDataFunction();
-            RestoreChara_Point();
-            UpdatePointText();
-        }
-        point=gameManager.Point;
-        UpdatePointText();
-
+            if (Input.GetKeyDown(KeyCode.Delete))
+            {
+                DeleteSaveDataFunction();
+                RestoreChara_Point();
+                UpdatePointText();
+            }
         // デバッグ用: PキーでCaraKcalを10増加
             if (Input.GetKeyDown(KeyCode.P))
             {
+                RestoreChara_Point();
                 gameManager.Point += 10;
+                // レベルを保存
+                PlayerPrefs.SetInt(CaraPointKey,gameManager.Point); // レベルを保存
+                PlayerPrefs.Save(); // 即時保存
                 Debug.Log("デバック：ポイント追加　現在の値 = " + gameManager.Point);
+                point=gameManager.Point;
+                UpdatePointText();
+
             }
     }
     void DeleteSaveDataFunction()

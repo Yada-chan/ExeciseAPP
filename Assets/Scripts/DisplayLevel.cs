@@ -18,9 +18,7 @@ public class DisplayLevel : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance;
-
         RestoreChara_Level();
-        
         UpdateLevelText(); // 初期表示
     }
 

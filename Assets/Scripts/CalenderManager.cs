@@ -7,26 +7,26 @@ using System;
 public class CalenderManager : MonoBehaviour
 {
     ///<summary>
-    ///ƒIƒuƒWƒFƒNƒgEƒRƒ“ƒ|[ƒlƒ“ƒg
+    ///ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ»ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
     ///</summary>
 
-    //ƒpƒuƒŠƒbƒN
-    [Header("ƒJƒŒƒ“ƒ_[˜g")]
+    //ãƒ‘ãƒ–ãƒªãƒƒã‚¯
+    [Header("ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼æ ")]
     public GameObject calender;
-    [Header("ƒJƒŒƒ“ƒ_[‚Ì”NŒƒeƒLƒXƒg")]
+    [Header("ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã®å¹´æœˆãƒ†ã‚­ã‚¹ãƒˆ")]
     public GameObject calenderDate;
-    [Header("“ú•tƒvƒŒƒnƒu")]
+    [Header("æ—¥ä»˜ãƒ—ãƒ¬ãƒãƒ–")]
     public GameObject dayPanel;
-    [Header("ƒ|ƒCƒ“ƒg•\¦ƒeƒLƒXƒg")]
-    public Text pointsText; // V‚µ‚­’Ç‰Á‚·‚éƒtƒB[ƒ‹ƒh
+    [Header("ãƒã‚¤ãƒ³ãƒˆè¡¨ç¤ºãƒ†ã‚­ã‚¹ãƒˆ")]
+    public Text pointsText; // æ–°ã—ãè¿½åŠ ã™ã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
 
-    //ƒvƒ‰ƒCƒx[ƒg
+    //ãƒ—ãƒ©ã‚¤ãƒ™ãƒ¼ãƒˆ
     private Text calenderDateText = null;
     private Image[] dayButtonColor = new Image[42];
     private Text[] dayText = new Text[42];
 
     ///<summary>
-    ///Šeí•Ï”
+    ///å„ç¨®å¤‰æ•°
     ///</summary>
 
     private DateTime firstDay = DateTime.MinValue;
@@ -41,13 +41,13 @@ public class CalenderManager : MonoBehaviour
     {
         GetTheDate();
 
-        // ƒJƒŒƒ“ƒ_[‚Ì”NŒ‚ğ•\¦‚·‚é
+        // ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã®å¹´æœˆã‚’è¡¨ç¤ºã™ã‚‹
         calenderDateText = calenderDate.GetComponent<Text>();
-        calenderDateText.text = firstDay.ToString("yyyy”NMŒ");
+        calenderDateText.text = firstDay.ToString("yyyyå¹´Mæœˆ");
 
         CreateDayPanel();
 
-        // ‘S‚Ä‚Ìƒpƒlƒ‹‚ğˆê“x”ñƒAƒNƒeƒBƒu‚É‚·‚é
+        // å…¨ã¦ã®ãƒ‘ãƒãƒ«ã‚’ä¸€åº¦éã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ã™ã‚‹
         foreach (Transform child in calender.transform)
         {
             child.gameObject.SetActive(false);
@@ -63,7 +63,7 @@ public class CalenderManager : MonoBehaviour
         nextMonth = firstDay.AddMonths(1);
     }
 
-    // “ú•tƒpƒlƒ‹‚ğì¬‚·‚é
+    // æ—¥ä»˜ãƒ‘ãƒãƒ«ã‚’ä½œæˆã™ã‚‹
     private void CreateDayPanel()
     {
         Debug.Log("CalledCreateDayPanel");
@@ -73,30 +73,30 @@ public class CalenderManager : MonoBehaviour
             createButton.transform.SetParent(calender.transform, false);
             dayButtonColor[i] = createButton.GetComponent<Image>();
             dayText[i] = createButton.transform.GetChild(0).GetComponent<Text>();
-            int index = i; // ƒCƒ“ƒfƒbƒNƒX‚ğƒLƒƒƒvƒ`ƒƒ‚·‚é
-            createButton.GetComponent<Button>().onClick.AddListener(() => OnDayButtonClick(index)); // ƒNƒŠƒbƒNƒCƒxƒ“ƒg‚ğ’Ç‰Á
-            createButton.SetActive(false); // ‰Šúó‘Ô‚Å”ñƒAƒNƒeƒBƒu‚Éİ’è
+            int index = i; // ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ã‚­ãƒ£ãƒ—ãƒãƒ£ã™ã‚‹
+            createButton.GetComponent<Button>().onClick.AddListener(() => OnDayButtonClick(index)); // ã‚¯ãƒªãƒƒã‚¯ã‚¤ãƒ™ãƒ³ãƒˆã‚’è¿½åŠ 
+            createButton.SetActive(false); // åˆæœŸçŠ¶æ…‹ã§éã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«è¨­å®š
             Debug.Log("Created day panel: " + i);
         }
-        Debug.Log("Total panels created: " + calender.transform.childCount); // ƒpƒlƒ‹”‚ÌŠm”F
+        Debug.Log("Total panels created: " + calender.transform.childCount); // ãƒ‘ãƒãƒ«æ•°ã®ç¢ºèª
     }
 
-    // ƒJƒŒƒ“ƒ_[‚Ì“ú•t‚ğƒŠƒZƒbƒg‚·‚é
+    // ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã®æ—¥ä»˜ã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹
     private void SetCalenderDate()
     {
-        // ƒJƒŒƒ“ƒ_[‚ÌÅ‰‚Ì“ú‚Ì—j“ú‚ğæ“¾
+        // ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã®æœ€åˆã®æ—¥ã®æ›œæ—¥ã‚’å–å¾—
         DayOfWeek firstWeek = firstDay.DayOfWeek;
         int diff = (firstWeek == DayOfWeek.Sunday) ? 0 : -(int)firstWeek;
 
-        // C³‚µ‚½ƒ|ƒCƒ“ƒg
+        // ä¿®æ­£ã—ãŸãƒã‚¤ãƒ³ãƒˆ
         firstPoint = firstDay.AddDays(diff);
 
         for (int i = 0; i < 42; i++)
         {
             DateTime temp = firstPoint.AddDays(i);
-            dayText[i].transform.parent.gameObject.SetActive(true); // ƒpƒlƒ‹‚ğƒAƒNƒeƒBƒu‚Éİ’è
+            dayText[i].transform.parent.gameObject.SetActive(true); // ãƒ‘ãƒãƒ«ã‚’ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«è¨­å®š
 
-            // ‰ŠúF‚ğŠDF‚Éİ’è‚µAƒeƒLƒXƒg‚ğƒŠƒZƒbƒg
+            // åˆæœŸè‰²ã‚’ç°è‰²ã«è¨­å®šã—ã€ãƒ†ã‚­ã‚¹ãƒˆã‚’ãƒªã‚»ãƒƒãƒˆ
             dayButtonColor[i].color = gray;
             dayText[i].text = "";
 
@@ -106,7 +106,7 @@ public class CalenderManager : MonoBehaviour
                 dayButtonColor[i].color = Color.white;
             }
 
-            // —j“ú‚É‰‚¶‚½ƒeƒLƒXƒgƒJƒ‰[‚Ìİ’è
+            // æ›œæ—¥ã«å¿œã˜ãŸãƒ†ã‚­ã‚¹ãƒˆã‚«ãƒ©ãƒ¼ã®è¨­å®š
             switch (temp.DayOfWeek)
             {
                 case DayOfWeek.Sunday:
@@ -124,17 +124,17 @@ public class CalenderManager : MonoBehaviour
         }
     }
 
-    // “ú•tƒ{ƒ^ƒ“‚ªƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚éƒƒ\ƒbƒh
+    // æ—¥ä»˜ãƒœã‚¿ãƒ³ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
     private void OnDayButtonClick(int index)
     {
         DateTime clickedDate = firstPoint.AddDays(index);
-        string key = clickedDate.ToString("yyyyMMdd"); // ”NŒ“ú‚ğƒL[‚Æ‚µ‚Äg‚¤
-        int dayPoints = PlayerPrefs.GetInt(key, 0); // PlayerPrefs‚©‚çƒ|ƒCƒ“ƒg‚ğæ“¾A‘¶İ‚µ‚È‚¢ê‡‚Í0
+        string key = clickedDate.ToString("yyyyMMdd"); // å¹´æœˆæ—¥ã‚’ã‚­ãƒ¼ã¨ã—ã¦ä½¿ã†
+        int dayPoints = PlayerPrefs.GetInt(key, 0); // PlayerPrefsã‹ã‚‰ãƒã‚¤ãƒ³ãƒˆã‚’å–å¾—ã€å­˜åœ¨ã—ãªã„å ´åˆã¯0
 
-        // ƒ|ƒCƒ“ƒg•\¦‚ÌƒeƒLƒXƒg‚ğ‰üs‚ğŠÜ‚ß‚Äİ’è
-        pointsText.text = $"{clickedDate.ToString("yyyy”N")}\n{clickedDate.ToString("MŒd“ú")}\n{dayPoints}ƒ|ƒCƒ“ƒg";
+        // ãƒã‚¤ãƒ³ãƒˆè¡¨ç¤ºã®ãƒ†ã‚­ã‚¹ãƒˆã‚’æ”¹è¡Œã‚’å«ã‚ã¦è¨­å®š
+        pointsText.text = $"{clickedDate.ToString("yyyyå¹´")}\n{clickedDate.ToString("Mæœˆdæ—¥")}\n{dayPoints}ãƒã‚¤ãƒ³ãƒˆ";
 
-        Debug.Log($"Clicked day panel {index}: {clickedDate.ToString("yyyy”NMŒd“ú")}, Points: {dayPoints}");
+        Debug.Log($"Clicked day panel {index}: {clickedDate.ToString("yyyyå¹´Mæœˆdæ—¥")}, Points: {dayPoints}");
     }
 
 
@@ -146,9 +146,9 @@ public class CalenderManager : MonoBehaviour
 
         firstDay = firstDay.AddMonths(month);
         nextMonth = firstDay.AddMonths(1);
-        calenderDateText.text = firstDay.ToString("yyyy”NMŒ");
+        calenderDateText.text = firstDay.ToString("yyyyå¹´Mæœˆ");
 
-        // Šù‘¶‚Ìƒpƒlƒ‹‚ğ”ñƒAƒNƒeƒBƒu‚É‚·‚é
+        // æ—¢å­˜ã®ãƒ‘ãƒãƒ«ã‚’éã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ã™ã‚‹
         foreach (Transform child in calender.transform)
         {
             child.gameObject.SetActive(false);

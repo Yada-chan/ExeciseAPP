@@ -12,8 +12,6 @@ public class textbaseomoide : MonoBehaviour
     {
         gameManager = GameManager.Instance;
 
-        // Sliderの初期値をCaraKcal[0]に設定
-
        
         
     }

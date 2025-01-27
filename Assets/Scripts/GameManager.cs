@@ -26,7 +26,7 @@ public class GameManager
     }
 
     // privateなゲーム変数
-    private int nowCaraNum = 1;
+    private int nowCaraNum = 0;
     private int point = 0;
     private int[] cara_kcal = new int[10];
     private int[] item = new int[5];
@@ -65,12 +65,6 @@ public class GameManager
     }
 
     // プロパティを定義する
-
-    public DateTime Stated_date
-    {
-        get { return stated_date; } // 値を取得
-        set { stated_date = value; } // 値を設定
-    }
     public int NowCaraNum
     {
         get { return nowCaraNum; } // 値を取得

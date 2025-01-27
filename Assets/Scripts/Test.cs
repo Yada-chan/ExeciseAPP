@@ -21,7 +21,7 @@ public class Test : MonoBehaviour
 
         // 値を設定
         gameManager.NowCaraNum = 0;//現在使用しているキャラ
-        gameManager.Point = 100;//所持ポイントの設定
+        gameManager.Point = 0;//所持ポイントの設定
         gameManager.CaraKcal = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };//キャラの摂取カロリー設定
         gameManager.Item[0] = 0;//アイテムの所持
 
@@ -44,16 +44,18 @@ public class Test : MonoBehaviour
         var day2Muscle = gameManager.GetMuscle(2);
 
         // 1日目の運動データを表示
-    Debug.Log("Day 1の運動:");
+    
     foreach (var exercise in day1Muscle)
     {
+        Debug.Log("Day 1の運動:");
         Debug.Log($"{exercise.Key}: {exercise.Value}回");
     }
 
     // 2日目の運動データを表示
-    Debug.Log("\nDay 2の運動:");
+    
     foreach (var exercise in day2Muscle)
     {
+        Debug.Log("\nDay 2の運動:");
         Debug.Log($"{exercise.Key}: {exercise.Value}回");
     }
 

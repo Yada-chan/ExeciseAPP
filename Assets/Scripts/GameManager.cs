@@ -37,7 +37,7 @@ public class GameManager
      // キャラ情報を管理する辞書
     private Dictionary<int, (string caraName, int cara_level)> characterData = new Dictionary<int, (string, int)>();
 
-    private DateTime stated_date; // ゲームを始めた日
+    private DateTime stated_date = DateTime.Now; // ゲームを始めた日
     private int date;             // ゲームを始めてからの経過日数
 
     // コンストラクタ（初期化処理）
@@ -65,6 +65,12 @@ public class GameManager
     }
 
     // プロパティを定義する
+
+    public DateTime Stated_date
+    {
+        get { return stated_date; } // 値を取得
+        set { stated_date = value; } // 値を設定
+    }
     public int NowCaraNum
     {
         get { return nowCaraNum; } // 値を取得

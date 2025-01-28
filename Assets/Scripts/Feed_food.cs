@@ -17,6 +17,9 @@ public class Feed_food : MonoBehaviour
 
      // GameManager参照の追加
     public GameManager gameManager;  // GameManagerスクリプト
+     private const string CaraKcalKey = "CaraKcalValue"; // カロリーの保存キー
+    // SaveDataDeleterのインスタンスを参照
+
 
     // 他クラスから値を取得・変更できるプロパティ
     void Start()
@@ -89,6 +92,8 @@ public class Feed_food : MonoBehaviour
                     {
                         Debug.Log("111GameManager.CaraKcal[0] の値: " + gameManager.CaraKcal[0]);
                         gameManager.CaraKcal[gameManager.NowCaraNum] += 150;
+                        PlayerPrefs.SetInt(CaraKcalKey, gameManager.CaraKcal[0]);
+                        PlayerPrefs.Save(); // 即時保存
                         Debug.Log("222GameManager.CaraKcal[0] の値: " + gameManager.CaraKcal[0]);
                         Debug.Log("GameManagerのKcalが更新されました！");
                     }

@@ -113,35 +113,96 @@ public class Feed_food : MonoBehaviour
             }
         }
     }
-
-    void InitializeImage()
-    {
-        // Resourcesフォルダから画像をロードして設定
-        Image image = GetComponent<Image>();
-        Sprite sprite = Resources.Load<Sprite>("jiro"); // "jiro.png" をロード
-        if (sprite != null)
-        {
-            image.sprite = sprite;
-
-            // 初期位置とスケールをリセット
-            x = 130;
-            rectTransform.anchoredPosition = new Vector2(x, CalculateY(x));
-            rectTransform.localScale = Vector3.one * initialScale;
-
-            isInitialized = true; // 初期化完了
-            eat_food = false; // 到達フラグをリセット
-            Debug.Log("画像がロードされ、初期化されました！");
-        }
-        else
-        {
-            Debug.LogError("Sprite jiro.png が見つかりません！");
-        }
-    }
-
+    
     // y = -1/25 * (x - 50)^2 + 100 を計算する関数
     float CalculateY(float x)
     {
         return -1f / 25f * Mathf.Pow(x - 50, 2) + 100f;
     }
+    /**************************************************************/
+    void InitializeImage()
+    {
+        Image image = GetComponent<Image>();
+        int foodType = FeedFood_Number(); // ランダムで0～6を取得
+        Sprite sprite = null;
+
+        // FeedFood_Number() の戻り値に応じて画像を切り替える
+        switch (foodType)
+        {
+            case 0:
+                sprite = Resources.Load<Sprite>("orange_juice");
+                break;
+            case 1:
+                sprite = Resources.Load<Sprite>("syokupan");
+                break;
+            case 2:
+                sprite = Resources.Load<Sprite>("mayo");
+                break;
+            case 3:
+                sprite = Resources.Load<Sprite>("meat");
+                break;
+            case 4:
+                sprite = Resources.Load<Sprite>("cake");
+                break;
+            case 5:
+                sprite = Resources.Load<Sprite>("cup_ra-men");
+                break;
+            case 6:
+                sprite = Resources.Load<Sprite>("jiro");
+                break;
+            default:
+                Debug.LogError("食べ物ないです！");
+                break;
+        }
+
+        if (sprite != null)
+        {
+            image.sprite = sprite;
+
+            x = 130;
+            rectTransform.anchoredPosition = new Vector2(x, CalculateY(x));
+            rectTransform.localScale = Vector3.one * initialScale;
+
+            isInitialized = true;
+            eat_food = false;
+            Debug.Log($"画像 '{sprite.name}' がロードされ、初期化されました！");
+        }
+        else
+        {
+            Debug.LogError("指定されたスプライトが見つかりません！");
+        }
+    }
+    /******************************************************/
+    public int FeedFood_Number()
+    {
+        return Random.Range(0, 7); // 0以上7未満の整数をランダムに返す
+    }
+
+    private bool hantei = false;
+
+    // hantei を外部から変更するためのメソッド
+    public void SetHantei(bool value)
+    {
+        hantei = value; // hantei の値を変更
+    }
+    /*
+    // 他のクラスでつかうとき
+    feedFoodScript.SetHantei(true);  // hantei を true に変更
+    */
+    // スペースキーが押されたらtrue、押されていないとfalseを返す関数
+    public bool Key()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            hantei = true; // スペースキーが押されたらtrueにする
+        }
+        else
+        {
+            hantei = false; // それ以外はfalseにする
+        }
+
+        return hantei;
+    }
+    /**********************************************************/
 
 }

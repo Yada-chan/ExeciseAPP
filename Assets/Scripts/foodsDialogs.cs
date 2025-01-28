@@ -56,7 +56,7 @@ public class foodsDialogs : MonoBehaviour
             Debug.LogError("選択された商品グループが null か、count が設定されていません。");
             return;
         }
-
+        
         popup.SetActive(true);
         popupBackGround.SetActive(true);
 

@@ -10,7 +10,9 @@ public class ItemButtonHandler : MonoBehaviour
     public GameObject popup; // ポップアップ用の親オブジェクト
     public TMP_Text syouhinmeiText; // 商品名を表示するTextMeshPro-Text (UI)
     public TMP_Text syouhinkakakuText; // 商品価格を表示するTextMeshPro-Text (UI)
-    public TMP_Text pointText; // ポイントを表示するTextMeshPro-Text (UI)
+    //public TMP_Text PointText; // ポイントを表示するTextMeshPro-Text (UI)
+    //private int point = 0;
+    //private const string CaraPointKey = "CaraPointValue"; // ポイントの保存キー
 
     // アイテム名と対応するポイント減少量、およびアイテムインデックスを定義
     private readonly Dictionary<string, (int cost, int itemIndex)> itemData = new Dictionary<string, (int, int)>
@@ -61,11 +63,12 @@ public class ItemButtonHandler : MonoBehaviour
         {
             Debug.LogError("syouhinkakakuText が設定されていません！");
         }
-
-        if (pointText != null)
-        {
-            UpdatePointText();
-        }
+        //if (PlayerPrefs.HasKey(CaraPointKey))
+        //{
+        //    gameManager.Point = PlayerPrefs.GetInt(CaraPointKey);
+        //    point = gameManager.Point;
+        //}
+        //UpdatePointText();
 
     }
 
@@ -101,13 +104,13 @@ public class ItemButtonHandler : MonoBehaviour
             Debug.LogError($"不明なアイテム: \"{buttonName}\"");
         }
     }
+    //void UpdatePointText()
+    //{
+    //    if (PointText != null)
+    //    {
+    //        PointText.text = point.ToString();// 変数をTextに反映
+    //    }
+    //}
 
-    // ポイントテキストを更新するメソッド
-    private void UpdatePointText()
-    {
-        if (pointText != null && gameManager != null)
-        {
-            pointText.text = gameManager.Point.ToString();
-        }
-    }
+
 }

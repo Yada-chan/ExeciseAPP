@@ -8,11 +8,9 @@ public class SliderController : MonoBehaviour
     public Slider kcalSlider; // UnityのInspectorで割り当てる
     private GameManager gameManager;
 
-    
-
     private const string CaraKcalKey = "CaraKcalValue"; // カロリーの保存キー
-
-    
+    // SaveDataDeleterのインスタンスを参照
+    public SaveDataDeleter saveDataDeleter;
 
     private void Start()
     {
@@ -46,35 +44,25 @@ public class SliderController : MonoBehaviour
 
     private void Update()
     {
-        // 「Delete」キーが押されたらセーブデータを削除
-        if (Input.GetKeyDown(KeyCode.Delete))
+       
+        
+        if (kcalSlider != null)
         {
-            DeleteSaveDataFunction();
+            if(gameManager.CaraKcal[0]<100)
+            {
             RestoreChara_Kcal();
-
-        // Sliderの初期値をCaraKcal[0]に設定
-        if (kcalSlider != null)
-        {
-            kcalSlider.value = gameManager.CaraKcal[0];
-            kcalSlider.maxValue = 100; // 必要なら設定
-            kcalSlider.minValue = 0;   // 必要なら設定
-        }
-
-        }
-        if (kcalSlider != null)
-        {
-            
-            // Sliderの値をCaraKcal[0]に同期
-            gameManager.CaraKcal[0] = (int)kcalSlider.value;
-
-            // 値を保存
-            PlayerPrefs.SetInt(CaraKcalKey, gameManager.CaraKcal[0]);
+            kcalSlider.value = gameManager.CaraKcal[0]; // Sliderにも反映
+            }
 
             // CaraKcalが100に達したらレベルを上げ、リセットする
             if (gameManager.CaraKcal[0] >= 100)
             {
-                gameManager.CaraKcal[0] = 0; // CaraKcalをリセット
-                kcalSlider.value = 0;       // Sliderもリセット
+                gameManager.CaraKcal[0] = gameManager.CaraKcal[0]-100; // CaraKcalをリセット
+                kcalSlider.value = gameManager.CaraKcal[0];       // Sliderもリセット
+                
+                // 値を保存
+                PlayerPrefs.SetInt(CaraKcalKey, gameManager.CaraKcal[0]);
+                PlayerPrefs.Save(); // 即時保存
 
                 /***************レベル表示*****************/
                 var caraData=gameManager.GetCharacterData(gameManager.NowCaraNum);
@@ -84,7 +72,7 @@ public class SliderController : MonoBehaviour
                 /*********************************/
             }
         }
-
+    /*
     void DeleteSaveDataFunction()
     {
         // セーブデータを削除する
@@ -99,7 +87,7 @@ public class SliderController : MonoBehaviour
             Debug.Log("No save data found to delete.");
         }
     }
-
+    */
     // デバッグ用: KキーでCaraKcalを10増加
             if (Input.GetKeyDown(KeyCode.K))
             {

@@ -15,6 +15,10 @@ public class DisplayLevel : MonoBehaviour
     private int caraLevel=1;
     private const string CaraLevelKey = "CaraLevelValue"; // レベルの保存キー
 
+    // SaveDataDeleterのインスタンスを参照
+    public SaveDataDeleter saveDataDeleter;
+
+
     void Start()
     {
         gameManager = GameManager.Instance;
@@ -24,6 +28,7 @@ public class DisplayLevel : MonoBehaviour
 
     void Update()
     {
+        /*
         // 「Delete」キーが押されたらセーブデータを削除
         if (Input.GetKeyDown(KeyCode.Delete))
         {
@@ -31,6 +36,9 @@ public class DisplayLevel : MonoBehaviour
             RestoreChara_Level();
             UpdateLevelText();
         }
+        */
+        RestoreChara_Level();
+        UpdateLevelText();
         // カロリーが閾値を超えた場合、レベルを上げる
         if (gameManager.CaraKcal[gameManager.NowCaraNum] >= threshold)
         {
@@ -46,7 +54,7 @@ public class DisplayLevel : MonoBehaviour
             UpdateLevelText();
         }
     }
-
+    /*
     void DeleteSaveDataFunction()
     {
         // セーブデータを削除する
@@ -61,7 +69,7 @@ public class DisplayLevel : MonoBehaviour
             Debug.Log("No save data found to delete.");
         }
     }
-
+    */
     private void RestoreChara_Level()
     {
     // キャラクターデータの復元

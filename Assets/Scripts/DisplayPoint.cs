@@ -24,14 +24,12 @@ public class DisplayPoint : MonoBehaviour
 
     void Update()
     {
-
  
                 RestoreChara_Point();
                 UpdatePointText();
         // デバッグ用: PキーでCaraKcalを10増加
             if (Input.GetKeyDown(KeyCode.P))
             {
-                
                 gameManager.Point += 10;
                 // レベルを保存
                 PlayerPrefs.SetInt(CaraPointKey,gameManager.Point); // レベルを保存

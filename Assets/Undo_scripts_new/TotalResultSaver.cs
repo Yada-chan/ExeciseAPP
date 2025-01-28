@@ -8,7 +8,39 @@ public class TotalResultSaver : MonoBehaviour
     public GameManager gameManager; // GameManagerスクリプトを参照
 
     private const string CaraPointKey = "CaraPointValue";
+    private int point;
 
+    private void Start()
+    {
+        if (gameManager == null)
+        {
+            gameManager = GameManager.Instance; // GameManagerのインスタンスを取得
+        }
+
+        if (gameManager == null)
+        {
+            Debug.LogError("[TotalResultSaver] GameManagerのインスタンスが見つかりません！");
+        }
+        else
+        {
+            RestoreChara_Point();
+        }
+    }
+
+    private void RestoreChara_Point()
+    {
+        // キャラクターデータの復元
+        if (PlayerPrefs.HasKey(CaraPointKey))
+        {
+            gameManager.Point = PlayerPrefs.GetInt(CaraPointKey);
+            point = gameManager.Point;
+        }
+        else
+        {
+            gameManager.Point = 0; // ポイントの初期値
+            point = gameManager.Point;
+        }
+    }
 
     public void SaveTotalResult()
     {
@@ -23,10 +55,12 @@ public class TotalResultSaver : MonoBehaviour
         DateTime currentDateTime = DateTime.Now; // 現在の年、月、日を取得
         string key = currentDateTime.ToString("yyyyMMdd"); // 年月日をキーとして使う
 
-
-        // GameManagerのポイントとしても保存
         int previousTotal = PlayerPrefs.GetInt(key, 0); // キーが存在しない場合は0を返す
-        int newTotal = previousTotal + totalResult;    // 新しい合計を計算
+        int newTotal = previousTotal + totalResult;    // 新しい合計を計算(一日分のポイント合計）
+
+        RestoreChara_Point();
+
+        point += totalResult;
 
         // PlayerPrefsに保存
         PlayerPrefs.SetInt(key, newTotal);
@@ -49,10 +83,10 @@ public class TotalResultSaver : MonoBehaviour
 
             if (gameManager != null)
             {
-                gameManager.Point = newTotal;
+                gameManager.Point = point;
                 Debug.Log($"[TotalResultSaver] gameManagerのポイントが更新されました: {gameManager.Point}");
-                // レベルを保存
-                PlayerPrefs.SetInt(CaraPointKey, gameManager.Point); // レベルを保存
+                // ポイントを保存
+                PlayerPrefs.SetInt(CaraPointKey, gameManager.Point); // ポイントを保存
                 PlayerPrefs.Save(); // 即時保存
             }
             else

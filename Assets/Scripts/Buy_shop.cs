@@ -9,6 +9,7 @@ public class OKButtonHandler : MonoBehaviour
     public TMP_Text PointText; // ポイントを表示するTextMeshPro-Text (UI)
     private int point = 0;
     private const string CaraPointKey = "CaraPointValue"; // ポイントの保存キー
+
     private const string ItemKeyPrefix = "Item"; // 所持アイテム保存キーのプレフィックス
 
 

@@ -8,6 +8,8 @@ public class Shop_Point : MonoBehaviour
     public TMP_Text PointText; // Textコンポーネント
     public GameManager gameManager; // GameManagerスクリプト
 
+    public SaveDataDeleter saveDataDeleter;
+
     private int point=0; // 変数保持
     private const string CaraPointKey = "CaraPointValue"; //    ポイントの保存キー
 
@@ -17,6 +19,13 @@ public class Shop_Point : MonoBehaviour
         RestoreChara_Point();
         UpdatePointText(); // 初期表示
     }
+    
+    void Update()
+    {
+        RestoreChara_Point();
+        UpdatePointText(); 
+    }
+
     private void RestoreChara_Point()
     {
     // キャラクターデータの復元

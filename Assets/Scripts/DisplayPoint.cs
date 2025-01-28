@@ -9,18 +9,22 @@ public class DisplayPoint : MonoBehaviour
     public GameManager gameManager; // GameManagerスクリプト
 
     private int point=0; //RestoreChara_Point(); 変数保持
+
     private const string CaraPointKey = "CaraPointValue"; //    ポイントの保存キー
     public SaveDataDeleter saveDataDeleter;
     void Start()
     {
-        gameManager = GameManager.Instance;
-        RestoreChara_Point();
-        UpdatePointText(); // 初期表示
+        gameManager = GameManager.Instance;  // GameManagerインスタンスを取得
+        RestoreChara_Point();                // PlayerPrefsからポイントを復元
+        UpdatePointText();                   // 初期表示
+        Debug.Log($"[DisplayPoint] デバッグ:現在の値 = {gameManager.Point}"); // 確認ログ
     }
 
-    
+
+
     void Update()
     {
+
  
                 RestoreChara_Point();
                 UpdatePointText();
@@ -36,13 +40,13 @@ public class DisplayPoint : MonoBehaviour
                 point=gameManager.Point;
                 UpdatePointText();
 
-            }
+        }
     }
 
 
     private void RestoreChara_Point()
     {
-    // キャラクターデータの復元
+        // キャラクターデータの復元
         if (PlayerPrefs.HasKey(CaraPointKey))
         {
             gameManager.Point = PlayerPrefs.GetInt(CaraPointKey);
@@ -58,12 +62,12 @@ public class DisplayPoint : MonoBehaviour
     void UpdatePointText()
     {
         if (PointText != null)
-    {
-        PointText.text = point.ToString();// 変数をTextに反映
-    }
-    else
-    {
-        Debug.LogError("PointText is not assigned!");
-    }
+        {
+            PointText.text = point.ToString();// 変数をTextに反映
+        }
+        else
+        {
+            Debug.LogError("PointText is not assigned!");
+        }
     }
 }

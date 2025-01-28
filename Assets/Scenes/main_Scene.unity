@@ -582,7 +582,7 @@ RectTransform:
   - {fileID: 1628834762}
   - {fileID: 1293476992}
   - {fileID: 1022454427}
->>>>>>> bdee3063a1a232de167bb92eaaf2345edcd0f2b9
+  - {fileID: 1590123637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1473,7 +1473,7 @@ GameObject:
   - component: {fileID: 1244431086}
   - component: {fileID: 1244431085}
   - component: {fileID: 1244431087}
->>>>>>> bdee3063a1a232de167bb92eaaf2345edcd0f2b9
+  - component: {fileID: 1244431088}
   m_Layer: 5
   m_Name: Button (kiroku)
   m_TagString: Untagged
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1244431088}
         m_TargetAssemblyTypeName: changeKIROKUScene, Assembly-CSharp
         m_MethodName: change_button
         m_Mode: 1
@@ -1594,6 +1594,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244431083}
   m_CullTransparentMesh: 1
+--- !u!114 &1244431088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244431083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acb05219820d9e46b9b1f89cd9e6f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1271333989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1647,7 +1659,6 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1293476993
->>>>>>> bdee3063a1a232de167bb92eaaf2345edcd0f2b9
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1711,10 +1722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c904807d5d5a2419b5d8ae3fadcbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: 180, y: -180, z: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  moveDuration: 3
-  gravity: 9.8
+  speed: 50
+  initialScale: 1
 --- !u!1 &1331012124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,7 +1875,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336754192}
   m_CullTransparentMesh: 1
->>>>>>> bdee3063a1a232de167bb92eaaf2345edcd0f2b9
 --- !u!1 &1367316659
 GameObject:
   m_ObjectHideFlags: 0

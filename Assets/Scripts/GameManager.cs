@@ -26,10 +26,13 @@ public class GameManager
     }
 
     // privateなゲーム変数
-    private int nowCaraNum = 1;
-    private int point = 0;
+    private int level = 1;
+    private int point = 100;
+    private int selectitem = 10;
+    private int nowCaraNum = 0;
+    
     private int[] cara_kcal = new int[10];
-    private int[] item = new int[5];
+    private int[] item = new int[7];
 
     // 運動データを管理する辞書
     private Dictionary<int, Dictionary<string, int>> muscle = new Dictionary<int, Dictionary<string, int>>();
@@ -65,12 +68,6 @@ public class GameManager
     }
 
     // プロパティを定義する
-
-    public DateTime Stated_date
-    {
-        get { return stated_date; } // 値を取得
-        set { stated_date = value; } // 値を設定
-    }
     public int NowCaraNum
     {
         get { return nowCaraNum; } // 値を取得
@@ -81,6 +78,12 @@ public class GameManager
     {
         get { return point; }
         set { point = value; }
+    }
+
+    public int SelectItem
+    {
+        get { return selectitem; } // 値を取得
+        set { selectitem = value; } // 値を設定
     }
 
     public int[] CaraKcal

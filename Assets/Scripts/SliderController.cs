@@ -63,18 +63,26 @@ public class SliderController : MonoBehaviour
         }
         if (kcalSlider != null)
         {
-            
-            // Sliderの値をCaraKcal[0]に同期
-            gameManager.CaraKcal[0] = (int)kcalSlider.value;
-
-            // 値を保存
+            if(gameManager.CaraKcal[0]<100)
+            {
             PlayerPrefs.SetInt(CaraKcalKey, gameManager.CaraKcal[0]);
+            PlayerPrefs.Save(); // 即時保存
+            kcalSlider.value = gameManager.CaraKcal[0]; // Sliderにも反映
+
+            }
+
+            
 
             // CaraKcalが100に達したらレベルを上げ、リセットする
             if (gameManager.CaraKcal[0] >= 100)
             {
-                gameManager.CaraKcal[0] = 0; // CaraKcalをリセット
-                kcalSlider.value = 0;       // Sliderもリセット
+                gameManager.CaraKcal[0] = gameManager.CaraKcal[0]-100; // CaraKcalをリセット
+                kcalSlider.value = gameManager.CaraKcal[0];       // Sliderもリセット
+                
+
+                // 値を保存
+                PlayerPrefs.SetInt(CaraKcalKey, gameManager.CaraKcal[0]);
+                PlayerPrefs.Save(); // 即時保存
 
                 /***************レベル表示*****************/
                 var caraData=gameManager.GetCharacterData(gameManager.NowCaraNum);

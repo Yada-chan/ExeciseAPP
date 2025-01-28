@@ -2852,7 +2852,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PointText: {fileID: 1022454429}
-  saveDataDeleter: {fileID: 0}
+
+  saveDataDeleter: {fileID: 1688873306}
+
 --- !u!114 &1022454429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3166,7 +3168,6 @@ GameObject:
   - component: {fileID: 1244431086}
   - component: {fileID: 1244431085}
   - component: {fileID: 1244431087}
-  - component: {fileID: 1244431088}
   m_Layer: 5
   m_Name: Button (kiroku)
   m_TagString: Untagged
@@ -3237,7 +3238,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1244431088}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: changeKIROKUScene, Assembly-CSharp
         m_MethodName: change_button
         m_Mode: 1
@@ -3287,18 +3288,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244431083}
   m_CullTransparentMesh: 1
---- !u!114 &1244431088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244431083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5acb05219820d9e46b9b1f89cd9e6f71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1271333989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3324,7 +3313,6 @@ GameObject:
   - component: {fileID: 1293476992}
   - component: {fileID: 1293476995}
   - component: {fileID: 1293476994}
-  - component: {fileID: 1293476993}
   - component: {fileID: 1293476996}
   - component: {fileID: 1293476997}
   m_Layer: 5
@@ -3353,6 +3341,7 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: -40}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+
 --- !u!114 &1293476993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3365,6 +3354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d693b30c2f72da94e8bd589af0230bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
 --- !u!114 &1293476994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4441,6 +4431,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522533608}
   m_CullTransparentMesh: 1
+
 --- !u!1 &1544240947
 GameObject:
   m_ObjectHideFlags: 0
@@ -4634,6 +4625,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544240947}
   m_CullTransparentMesh: 1
+
 --- !u!1 &1601196514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4685,7 +4677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 1601196517}
-  saveDataDeleter: {fileID: 0}
+  saveDataDeleter: {fileID: 1688873306}
 --- !u!114 &1601196517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5850,9 +5842,17 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920694381}
-  m_CullTransparentMesh: 1
---- !u!114 &1920694385
+
+  m_GameObject: {fileID: 1628834761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5204e6a08a81d4e9957a5e2f9c5482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kcalSlider: {fileID: 1628834764}
+  saveDataDeleter: {fileID: 1688873306}
+--- !u!114 &1628834764
+
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

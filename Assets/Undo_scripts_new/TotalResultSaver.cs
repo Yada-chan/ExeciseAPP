@@ -23,7 +23,7 @@ public class TotalResultSaver : MonoBehaviour
         }
         else
         {
-            RestoreChara_Point();
+            RestoreChara_Point();//Pointの値をゲットする
         }
     }
 
@@ -65,12 +65,12 @@ public class TotalResultSaver : MonoBehaviour
         // PlayerPrefsに保存
         PlayerPrefs.SetInt(key, newTotal);
         PlayerPrefs.Save();
-        Debug.Log($"[TotalResultSaver] PlayerPrefsに新しい合計を保存しました: {newTotal}");
+        Debug.Log($"[TotalResultSaver] PlayerPrefsに新しい合計を保存しました: {newTotal}");//カレンダー用の記録に保存されたかデバッグ
 
-        // GameManagerに保存
+        // GameManagerに保存、ポイント処理
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.Point = newTotal;
+            GameManager.Instance.Point = newTotal;//インスタンスに保存
             PlayerPrefs.SetInt("GameManagerPoints", GameManager.Instance.Point); // PlayerPrefsに保存
             PlayerPrefs.Save();
             Debug.Log($"[TotalResultSaver] GameManagerのポイントが更新され、保存されました: {GameManager.Instance.Point}");
@@ -85,7 +85,6 @@ public class TotalResultSaver : MonoBehaviour
             {
                 gameManager.Point = point;
                 Debug.Log($"[TotalResultSaver] gameManagerのポイントが更新されました: {gameManager.Point}");
-                // ポイントを保存
                 PlayerPrefs.SetInt(CaraPointKey, gameManager.Point); // ポイントを保存
                 PlayerPrefs.Save(); // 即時保存
             }

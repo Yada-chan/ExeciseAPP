@@ -58,6 +58,8 @@ public class OKButtonHandler : MonoBehaviour
             if (gameManager.Point >= itemCost)
             {
                 // 商品購入処理
+
+                
                 gameManager.Item[selectedItemIndex]++;
                 gameManager.Point -= itemCost;
                 pointText.text = gameManager.Point.ToString();
@@ -66,6 +68,8 @@ public class OKButtonHandler : MonoBehaviour
 
                 // 現在の所持アイテムを表示
                 Debug.Log("現在の所持アイテム:");
+
+
                 for (int i = 0; i < gameManager.Item.Length; i++)
                 {
                     if (itemNames.TryGetValue(i, out string itemName))
